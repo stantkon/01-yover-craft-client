@@ -30,7 +30,7 @@ function FileUpload() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/upload', {
+            const response = await fetch('http://26.105.9.189:5000/upload', {
                 method: 'POST',
                 body: formData
             });
