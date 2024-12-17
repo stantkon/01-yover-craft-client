@@ -7,6 +7,9 @@ import FileUpload from "./App";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <FileUpload />
+    <div>
+        <h1>Добро пожаловать в приложение для загрузки файлов</h1>
+        <FileUpload/>
+    </div>
 );
 

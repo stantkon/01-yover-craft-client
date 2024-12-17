@@ -16,8 +16,8 @@ function FileUpload() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!selectedFiles) {
-            setResponseMessage('Пожалуйста, выберите файлы для загрузки.');
+        if (!selectedFiles || !folderName) {
+            setResponseMessage('Пожалуйста, укажите имя папки и выберите файлы для загрузки.');
             return;
         }
 
