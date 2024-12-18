@@ -225,6 +225,7 @@ const App = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button onClick={handleRegister}>Зарегистрироваться</button>
+                    <button onClick={() => setIsRegistering(false)} className="back-button">Назад</button> {/* Кнопка "Назад" */}
                 </div>
             )}
 
@@ -235,11 +236,12 @@ const App = () => {
                     <h2>Добро пожаловать, {username}</h2>
 
                     {/* Путь */}
-                    <div>
+                    <div className="folder-back-button">
+                        <span>{currentFolder ? `Текущая папка: ${currentFolder}` : 'Главная папка'}</span>
+
                         {currentFolder && (
                             <button onClick={handleBack}>Перейти назад</button>
                         )}
-                        <span>{currentFolder ? `Текущая папка: ${currentFolder}` : 'Главная папка'}</span>
                     </div>
 
                     {/* Список папок и файлов */}
@@ -266,13 +268,13 @@ const App = () => {
                         ]}
                     </div>
 
-                    {/* Кнопка обновить список */}
-                    <button className="refresh-button" onClick={handleRefresh}>Обновить список</button>
 
                     {/* Загрузка файлов */}
                     <div className="upload-container">
                         <input type="file" multiple onChange={handleFileUpload} />
                     </div>
+                    {/* Кнопка обновить список */}
+                    <button className="refresh-button" onClick={handleRefresh}>Обновить список</button>
 
                     {/* Создание новой папки */}
                     <button onClick={handleCreateFolder}>Создать новую папку</button>

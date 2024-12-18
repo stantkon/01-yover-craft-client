@@ -22,7 +22,12 @@ body {
     padding: 20px;
     position: relative;
 }
-
+.container h1{
+    text-align: center;
+}
+.container h2{
+    text-align: center;
+}
 /* Стиль для кнопок */
 button {
     background-color: #f8a200; /* оранжевый цвет для кнопок */
@@ -53,7 +58,7 @@ button:hover {
 /* Кнопка обновления списка */
 .refresh-button {
     position: absolute;
-    top: 20px;
+    top: 88%;
     right: 20px;
     background-color: #f8a200;
     color: #fff;
@@ -211,4 +216,12 @@ input[type="file"]:hover:before {
 
 #delete-button:hover {
     background-color: #b71c1c; /* Темно-красный при наведении */
+}
+.folder-back-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.back-button{
+    margin-left: 10px;
 }
