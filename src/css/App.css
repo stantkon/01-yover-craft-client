@@ -1,0 +1,214 @@
+/* Общие стили для body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c; /* тёмный фон */
+    color: #f1f1f1; /* светлый текст */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Контейнер для всего приложения */
+.container {
+    width: 500px;
+    height: 600px;
+    background-color: #383838; /* темно-серый фон для меню */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    position: relative;
+}
+
+/* Стиль для кнопок */
+button {
+    background-color: #f8a200; /* оранжевый цвет для кнопок */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e77d00; /* тёмно-оранжевый при наведении */
+}
+
+/* Стили для кнопки "выйти" */
+.logout-button {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    margin-left: -200px;
+    background-color: #e77d00; /* тёмно-оранжевый для кнопки выхода */
+    color: #fff;
+}
+
+/* Кнопка обновления списка */
+.refresh-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f8a200;
+    color: #fff;
+}
+
+/* Стили для списка папок и файлов */
+.files-container {
+    overflow-y: auto;
+    max-height: 750px; /* ограничение по высоте */
+    margin-top: 50px; /* отступ сверху для кнопки */
+}
+
+/* Каждый элемент списка папки или файла */
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.file-item span {
+    color: #f1f1f1;
+    font-size: 16px;
+}
+
+/* Кнопки для перехода и скачивания файлов */
+.file-item button {
+    background-color: #f8a200;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.file-item button:hover {
+    background-color: #e77d00; /* тёмно-оранжевый для кнопок внутри списка */
+}
+
+/* Стили для формы загрузки файлов */
+.upload-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.upload-container input[type="file"] {
+    background-color: #f8a200;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.upload-container input[type="file"]:hover {
+    background-color: #e77d00; /* тёмно-оранжевый при наведении */
+}
+
+.registration-field {
+    color: #fb0000;
+}
+
+/* Кнопка выбора файла - скрытие текста */
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /* скрыть текст по умолчанию */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background-color: #555; /* тёмный фон для полей ввода */
+    color: #f1f1f1; /* светлый текст */
+    border: 1px solid #444; /* тёмная граница */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #f8a200; /* оранжевая граница при фокусе */
+    background-color: #444; /* чуть светлее фон при фокусе */
+}
+
+/* Стили для кнопки выбора файла */
+input[type="file"] {
+    width: 160px;
+    padding: 12px 15px;
+    background-color: #444; /* фон кнопки */
+    color: transparent; /* скрываем текст */
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+input[type="file"]:hover {
+    background-color: #f8a200; /* оранжевый при наведении */
+    border-color: #f8a200; /* оранжевая граница */
+}
+
+/* Кнопка выбора файла - скрытие текста */
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /* скрыть текст по умолчанию */
+}
+
+input[type="file"]:before {
+    content: "Выберите файл"; /* кастомный текст */
+    display: inline-block;
+    color: #f8a200; /* оранжевый текст */
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #444;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type="file"]:hover:before {
+    background-color: #f8a200; /* оранжевый при наведении */
+    color: white;
+}
+
+.login-button {
+    margin-right: 10px;
+}
+
+/* Стили для кнопки "Удалить" */
+#delete-button {
+    background-color: #d32f2f; /* Красный цвет для удаления */
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px; /* Уменьшенный размер шрифта */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Отступ от других кнопок */
+    transition: background-color 0.3s ease;
+}
+
+#delete-button:hover {
+    background-color: #b71c1c; /* Темно-красный при наведении */
+}
