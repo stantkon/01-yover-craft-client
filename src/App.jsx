@@ -11,6 +11,18 @@ const App = () => {
     const [files, setFiles] = useState([]);
     const [currentFolder, setCurrentFolder] = useState('');
 
+
+    //Восстановление состояния из localStorage браузера при загрузке приложения
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username');
+        const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+        if (storedUsername && storedIsLoggedIn) {
+            setUsername(storedUsername);
+            setIsLoggedIn(true);
+        }
+    }, []);
+
     // Регистрация нового пользователя
     const handleRegister = async () => {
         try {
@@ -29,11 +41,27 @@ const App = () => {
             const response = await axios.post('http://26.105.9.189:5000/login', { username, password });
             setMessage(response?.data?.message || 'Успех');
             setIsLoggedIn(true);
+
+            // Сохраняем данные авторизации в localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('isLoggedIn', 'true');
+
             loadFoldersAndFiles();  // Загрузка файлов и папок
         } catch (error) {
             console.error(error);
             setMessage(error?.response?.data?.message || 'Ошибка при входе');
         }
+    };
+
+    // Выход пользователя
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        setUsername('');
+        setPassword('');
+
+        // Удаление данных из localStorage
+        localStorage.removeItem('username');
+        localStorage.removeItem('isLoggedIn');
     };
 
     // Загрузка папок и файлов
@@ -110,6 +138,7 @@ const App = () => {
         loadFoldersAndFiles(); // Повторная загрузка
     };
 
+    // Функция удаления
     const handleDelete = async (item, type) => {
         try {
             const endpoint = type === 'folder' ? 'folder' : 'file';
@@ -123,6 +152,8 @@ const App = () => {
             setMessage(error?.response?.data?.message || `Ошибка при удалении ${type === 'folder' ? 'папки' : 'файла'}`);
         }
     };
+
+    //Функция скачивания
     const handleDownloadFile = async (fileName) => {
         try {
             const response = await axios.get('http://26.105.9.189:5000/download', {
@@ -200,7 +231,7 @@ const App = () => {
             {/* Главная страница после входа */}
             {isLoggedIn && (
                 <div>
-                    <button className="logout-button" onClick={() => setIsLoggedIn(false)}>Выйти</button>
+                    <button className="logout-button" onClick={handleLogout}>Выйти</button>
                     <h2>Добро пожаловать, {username}</h2>
 
                     {/* Путь */}
